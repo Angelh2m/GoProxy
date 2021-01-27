@@ -3,13 +3,13 @@
 apt list --upgradable
 sudo apt-get update -y
 
-curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/proxy --output ~/home/ubuntu/.proxy
-sudo chmod 777 ~/home/ubuntu/.proxy
+sudo curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/proxy --output ~/.proxy
+sudo chmod 777 ~/.proxy
 
 sudo touch /etc/systemd/system/goProcess.service
 sudo chmod 777 /etc/systemd/system/goProcess.service
 
-cat <<EOT >> goProcess.service
+cat <<EOT >> /etc/systemd/system/goProcess.service
 [Unit]
 Description=Go Server
 
