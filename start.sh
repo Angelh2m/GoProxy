@@ -36,5 +36,4 @@ sudo systemctl start goProcess.service
 sudo systemctl status goProcess.service
 
 
-
 # <!-- https://gist.github.com/amazingandyyy/60edaede96fef0bc5524c01cb5a7f92b -->
