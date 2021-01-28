@@ -11,6 +11,7 @@ sudo chmod 777 /etc/systemd/system/goProcess.service
 
 
 # <!-- systemctl settings -->
+sudo systemctl stop goProcess.service
 
 # <!-- Add the service -->
 sudo systemctl enable goProcess.service
