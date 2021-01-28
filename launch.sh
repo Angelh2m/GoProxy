@@ -13,4 +13,3 @@ sh listInstaces.sh
 
 
 # DEBUG
- 

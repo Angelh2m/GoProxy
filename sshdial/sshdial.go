@@ -61,19 +61,30 @@ func main() {
 
 	fmt.Println("Connected...")
 
-	command := `
-		curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/start.sh --output ~/start.sh
-	`
+	// command := `
+	// 	curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/start.sh --output ~/start.sh
+	// `
 
-	run := "sudo sh start.sh"
+	run := `
+		sudo curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/proxy --output ~/.proxy
+		sudo chmod 777 ~/.proxy
+
+		touch /etc/systemd/system/goProcess.service
+		sudo chmod 777 /etc/systemd/system/goProcess.service
+		sudo curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/goProcess.service --output /etc/systemd/system/goProcess.service
+
+		sudo systemctl stop goProcess.service
+		sudo systemctl enable goProcess.service
+		sudo systemctl start goProcess.service
+		sudo systemctl status goProcess.service
+	`
 
 	// Creating the buffer which will hold the remotly executed command's output.
 	var stdoutBuf bytes.Buffer
 	ss.Stdout = &stdoutBuf
 
-	ss.Run(command)
-	fmt.Println(stdoutBuf.String())
-
+	// ss.Run(command)
 	ss.Run(run)
+
 	fmt.Println(stdoutBuf.String())
 }

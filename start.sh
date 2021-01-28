@@ -5,8 +5,8 @@ sudo apt-get update -y
 
 echo "Yum update"
 
-sudo curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/proxy --output /.proxy
-sudo chmod 777 /.proxy
+sudo curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/proxy --output ~/.proxy
+sudo chmod 777 ~/.proxy
 
 echo "CURL proxy done"
 

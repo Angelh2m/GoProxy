@@ -1,3 +1,3 @@
  #!/bin/bash
  
- aws ec2 terminate-instances --instance-ids i-0cd979e5bdbb36124 --output table --region us-east-2
+ aws ec2 terminate-instances --instance-ids i-06fd51b19462e94c7 --output table --region us-east-2
