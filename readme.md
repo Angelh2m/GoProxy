@@ -22,3 +22,15 @@ aws ec2 describe-instances \
 - https://docs.aws.amazon.com/code-samples/latest/catalog/go-ec2-create_instance.go.html
 
 - https://medium.com/tarkalabs/ssh-recipes-in-go-part-one-5f5a44417282
+
+
+## Try
+
+echo hello world | ssh user@host tee ~/myproc.stdout
+
+
+## Debug
+
+```
+  ssh -i "<KEM>" ubuntu@<IP>
+```

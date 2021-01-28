@@ -13,9 +13,10 @@ import (
 func main() {
 
 	user := "ubuntu"
-	address := "<IP_ADDRESS>"
+	address := os.Args[1:][0]
 	port := "22"
 
+	fmt.Println("Start ....")
 	// 	export EC2_KEY_PAIR_OHIO="Proxy_Ohio"
 	// export EC2_SG_OHIO="sg-057d3f5d45c52e654"
 	// export EC2_KEY_OHIO="/Users/home/Keys/Proxy_Ohio.pem"
@@ -58,17 +59,21 @@ func main() {
 
 	defer ss.Close()
 
+	fmt.Println("Connected...")
+
 	command := `
 		curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/start.sh --output ~/start.sh
-		sudo sh start.sh
 	`
+
+	run := "sudo sh start.sh"
 
 	// Creating the buffer which will hold the remotly executed command's output.
 	var stdoutBuf bytes.Buffer
 	ss.Stdout = &stdoutBuf
 
 	ss.Run(command)
+	fmt.Println(stdoutBuf.String())
 
-	// Let's print out the result of command.
+	ss.Run(run)
 	fmt.Println(stdoutBuf.String())
 }

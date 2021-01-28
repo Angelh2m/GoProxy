@@ -6,22 +6,8 @@ sudo apt-get update -y
 sudo curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/proxy --output ~/.proxy
 sudo chmod 777 ~/.proxy
 
-sudo touch /etc/systemd/system/goProcess.service
+sudo curl https://raw.githubusercontent.com/Angelh2m/GoProxy/master/goProcess.service --output ~/etc/systemd/system/goProcess.service
 sudo chmod 777 /etc/systemd/system/goProcess.service
-
-cat <<EOT >> /etc/systemd/system/goProcess.service
-[Unit]
-Description=Go Server
-
-[Service]
-ExecStart=/home/ubuntu/.proxy
-WorkingDirectory=/home/ubuntu
-User=root
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-EOT
 
 
 # <!-- systemctl settings -->
